@@ -51,5 +51,26 @@ took 5509 tries and 17796 ms (3.2303503358141223 ms per try)
 
 - For strings at the start, the program automatically appends "3J"
 - Not all strings/addresses are valid! The program does not check for this. for example: an address cannot start with "3JS" or any other capital after "3J".
+- An address is in BASE58, which basically means you can't use the characters 0, O, I, and l)
 - Depending on the length of your string and if it is case-sensitive or not - it could take a LOOOOOONNG time! just try out a single and double character pattern to get a rough idea of how long it will take.
 - Interrupt or end the program at any time with  `CTRL-C`
+
+## Estimated Time
+Estimates on my 2017 laptop (Xeon E3-1505M v6)
+
+### Case Insensitive
+| Characters | Estimated Attempts | Estimated Time (hours) |
+| :---: | :--- |:--- |
+| `1` | '29' | '2,81944E-05' |
+| `2` | '841' | '0,0008' |
+| `3` | '24389' | '0,023 h' |
+| `4` | '707281' | '0,68 h' |
+| `5` | '20511149' | '19,9 h' |
+| `6` | '594823321' | '24 days' |
+| `7` | '17249876309' | '699 days' |
+| `8` | '5,00246E+11' | '55 years' |
+| `9` | '1,45071E+13' | '1610 years' |
+
+As you can see it goes up pretty fast. Case senstive is harder to brute force...
+
+
