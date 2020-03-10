@@ -59,17 +59,17 @@ took 5509 tries and 17796 ms (3.2303503358141223 ms per try)
 Estimates on my 2017 laptop (Xeon E3-1505M v6)
 
 ### Case Insensitive
-| Characters | Estimated Attempts | Estimated Time |
+| Characters | Estimated Attempts for 50% chance | Estimated Time |
 | :---: | :--- |:--- |
-| `1` | 29 | 0,1 s |
-| `2` | 841 | 2,9 s |
-| `3` | 24389 | 85 s |
-| `4` | 707281 | 41 min |
-| `5` | 20511149 | 19,9 h |
-| `6` | 594823321 | 24 days |
-| `7` | 17249876309 | 699 days |
-| `8` | 5,00246E+11 | 55 years |
-| `9` | 1,45071E+13 | 1610 years |
+| `1` | 29 | 0,07 s |
+| `2` | 841 | 2,0 s |
+| `3` | 24389 | 58 s |
+| `4` | 707281 | 28 min |
+| `5` | 20511149 | 13,6 h |
+| `6` | 594823321 | 16 days |
+| `7` | 17249876309 | 476 days |
+| `8` | 5,00246E+11 | 38 years |
+| `9` | 1,45071E+13 | 1097 years |
 
 As you can see it goes up pretty fast. Case senstive is harder to brute force...
 
