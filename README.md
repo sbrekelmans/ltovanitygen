@@ -59,7 +59,7 @@ took 5509 tries and 17796 ms (3.2303503358141223 ms per try)
 Estimates on my 2017 laptop (Xeon E3-1505M v6)
 
 ### Case Insensitive
-| Characters | Estimated Attempts | Estimated Time (hours) |
+| Characters | Estimated Attempts | Estimated Time |
 | :---: | :--- |:--- |
 | `1` | 29 | 2,81944E-05 |
 | `2` | 841 | 0,0008 |
