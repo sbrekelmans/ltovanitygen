@@ -37,10 +37,28 @@ const bruteForceStart = (fullString, sensitive) => {
       if (address.toLowerCase().startsWith(lowerString)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
-        console.log("succes! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
-        console.log("statistics:");
-        console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)");
-        break;
+        console.log("\nsucces! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
+        console.log("\nstatistics:");
+        console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)\n\n");
+        process.exit(0);
+      } else {
+        //console.log(i);
+      };
+      if ((i % 5000) == 0) {
+        console.log(i + " attempts... still going...");
+      }
+    }
+  } else if (sensitive == "yes") {
+    for (var i = 0; i <= 1000000; i++) {
+      var attempt = seedPhrase();
+      var address = lc.address(attempt);
+      if (address.startsWith(fullString)) {
+        var timeStop = new Date().getTime();
+        var pair = lc.keyPair(attempt);
+        console.log("\nsucces! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
+        console.log("\nstatistics:");
+        console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)\n\n");
+        process.exit(0);
       } else {
         //console.log(i);
       };
@@ -49,23 +67,8 @@ const bruteForceStart = (fullString, sensitive) => {
       }
     }
   } else {
-    for (var i = 0; i <= 1000000; i++) {
-      var attempt = seedPhrase();
-      var address = lc.address(attempt);
-      if (address.startsWith(fullString)) {
-        var timeStop = new Date().getTime();
-        var pair = lc.keyPair(attempt);
-        console.log("succes! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
-        console.log("statistics:");
-        console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)");
-        break;
-      } else {
-        //console.log(i);
-      };
-      if ((i % 5000) == 0) {
-        console.log(i + " attempts... still going...");
-      }
-    }
+    console.log("\nthere was an error, make sure you enter lowercase answers, exactly as specified.")
+    process.exit();
   }
 };
 
@@ -79,10 +82,28 @@ const bruteForceEnd = (string, sensitive) => {
       if (address.toLowerCase().endsWith(lowerString)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
-        console.log("succes! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
-        console.log("statistics:");
-        console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)");
-        break;
+        console.log("\nsucces! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
+        console.log("\nstatistics:");
+        console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)\n\n");
+        process.exit(0);
+      } else {
+        //console.log(i);
+      };
+      if ((i % 5000) == 0) {
+        console.log(i + " attempts... still going...");
+      }
+    }
+  } else if (sensitive == "yes") {
+    for (var i = 0; i <= 1000000; i++) {
+      var attempt = seedPhrase();
+      var address = lc.address(attempt);
+      if (address.endsWith(string)) {
+        var timeStop = new Date().getTime();
+        var pair = lc.keyPair(attempt);
+        console.log("\nsucces! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
+        console.log("\nstatistics:");
+        console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)\n\n");
+        process.exit(0);
       } else {
         //console.log(i);
       };
@@ -91,23 +112,8 @@ const bruteForceEnd = (string, sensitive) => {
       }
     }
   } else {
-    for (var i = 0; i <= 1000000; i++) {
-      var attempt = seedPhrase();
-      var address = lc.address(attempt);
-      if (address.endsWith(string)) {
-        var timeStop = new Date().getTime();
-        var pair = lc.keyPair(attempt);
-        console.log("succes! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
-        console.log("statistics:");
-        console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)");
-        break;
-      } else {
-        //console.log(i);
-      };
-      if ((i % 5000) == 0) {
-        console.log(i + " attempts... still going...");
-      }
-    }
+    console.log("\nthere was an error, make sure you enter lowercase answers, exactly as specified.")
+    process.exit();
   }
 };
 
@@ -119,13 +125,14 @@ const location = prompt('At what location? (start/end)? ' );
 
 
 if (location == "start") {
-  console.log(`Bruteforcing an address with pattern ` + "3J" + pattern + ` at the ${location}, case sensitive: ${caseSensitivity}`);
+  console.log(`\nBruteforcing an address with pattern ` + "3J" + pattern + ` at the ${location}, case sensitive: ${caseSensitivity}`);
   bruteForceStart("3J" + pattern, caseSensitivity);
 } else if (location == "end") {
-  console.log(`Bruteforcing an address with pattern ` + pattern + ` at the ${location}, case sensitive: ${caseSensitivity}`);
+  console.log(`\nBruteforcing an address with pattern ` + pattern + ` at the ${location}, case sensitive: ${caseSensitivity}`);
   bruteForceEnd(pattern, caseSensitivity);
 } else {
-  console.log("there was an error, make sure you enter lowercase answers, exactly as specified.")
+  console.log("\nthere was an error, make sure you enter lowercase answers, exactly as specified.")
+  process.exit()
 };
 
 module.exports = app;

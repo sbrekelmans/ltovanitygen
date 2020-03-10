@@ -36,10 +36,12 @@ At what location? (start/end)? start
 Bruteforcing an address with pattern 3Jsbr at the start, case sensitive: no
 0 attempts... still going...
 5000 attempts... still going...
+
 succes! 3JsBrroZvGfGut3Y4Ecymo188ReHMctAk43
 seed: health staff athlete mule quantum boat brass stove hamster almost color riot
 private: 5BdPKjA8ZNsPGCkknkkHhznEeghwaU4kzFdE7bmyqWvWgvhKGn7nUnMhuFXAQqx9NZJj1C3yDbHkjWvmd9RmdmAw
 public: AXmFQT6Z9inwHU2Rtf35mJHgPWvuyswUcBomvDHsNqEw
+
 statistics:
 took 5509 tries and 17796 ms (3.2303503358141223 ms per try)
 ```
@@ -48,3 +50,4 @@ took 5509 tries and 17796 ms (3.2303503358141223 ms per try)
 - For strings at the start, the program automatically appends "3J"
 - Not all strings/addresses are valid! The program does not check for this. for example: an address cannot start with "3JS" or any other capital after "3J".
 - Depending on the length of your string and if it is case-sensitive or not - it could take a LOOOOOONNG time! just try out a single and double character pattern to get a rough idea of how long it will take.
+- Interrupt or end the program at any time with  `CTRL-C`
