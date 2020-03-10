@@ -8,6 +8,8 @@ It uses [lto-crypto](https://github.com/ltonetwork/lto-crypto) by LTO Network to
 Clone the code (or download) and install locally:
 
 ```console
+git clone https://github.com/sbrekelmans/ltovanitygen.git
+cd ltovanitygen
 npm install
 ```
 
