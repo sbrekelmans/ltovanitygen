@@ -1,0 +1,16 @@
+{
+  "name": "ltovanitywallet",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@lto-network/lto-crypto": "^1.0.1",
+    "chalk": "^3.0.0",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "lto-api": "^0.5.12",
+    "prompt-sync": "^4.2.0"
+  }
+}
