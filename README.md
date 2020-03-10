@@ -1,7 +1,7 @@
 # LTO Vanity Address generator
 
 Rough tool to bruteforce an LTO Vanity address - an adress starting or ending with a specific string.
-It uses https://github.com/ltonetwork/lto-crypto to generate an address and compare it to the users' input.
+It uses [lto-crypto](https://github.com/ltonetwork/lto-crypto) by LTO Network to generate an address and compare it to the users' input.
 
 ### Installing
 
@@ -45,6 +45,6 @@ took 5509 tries and 17796 ms (3.2303503358141223 ms per try)
 ```
 ## Some thing to consider
 
-For strings at the start, the program automatically appends "3J"
-Not all strings/addresses are valid! The program does not check for this. for example: an address cannot start with "3JS" or any other capital after "3J".
-Depending on the length of your string and if it is case-sensitive or not - it could take a LOOOOOONNG time! just try out a single and double character pattern to get a rough idea of how long it will take.
+- For strings at the start, the program automatically appends "3J"
+- Not all strings/addresses are valid! The program does not check for this. for example: an address cannot start with "3JS" or any other capital after "3J".
+- Depending on the length of your string and if it is case-sensitive or not - it could take a LOOOOOONNG time! just try out a single and double character pattern to get a rough idea of how long it will take.
