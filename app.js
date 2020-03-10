@@ -5,6 +5,7 @@ var fs = require('fs');
 const chalk = require('chalk');
 
 var app = express();
+const maxTries = 10000000000; //lower this to limit the amount of tries currently set to approximately a year - so practically infinite
 
 //const LTO = require('lto-api').LTO;
 //const lto = new LTO();
@@ -31,7 +32,7 @@ const bruteForceStart = (fullString, sensitive) => {
   var timeStart = new Date().getTime();
   if (sensitive == "no") {
     var lowerString = fullString.toLowerCase();
-    for (var i = 0; i <= 1000000; i++) {
+    for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
       var address = lc.address(attempt);
       if (address.toLowerCase().startsWith(lowerString)) {
@@ -49,7 +50,7 @@ const bruteForceStart = (fullString, sensitive) => {
       }
     }
   } else if (sensitive == "yes") {
-    for (var i = 0; i <= 1000000; i++) {
+    for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
       var address = lc.address(attempt);
       if (address.startsWith(fullString)) {
@@ -76,7 +77,7 @@ const bruteForceEnd = (string, sensitive) => {
   var timeStart = new Date().getTime();
   if (sensitive == "no") {
     var lowerString = string.toLowerCase();
-    for (var i = 0; i <= 1000000; i++) {
+    for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
       var address = lc.address(attempt);
       if (address.toLowerCase().endsWith(lowerString)) {
@@ -94,7 +95,7 @@ const bruteForceEnd = (string, sensitive) => {
       }
     }
   } else if (sensitive == "yes") {
-    for (var i = 0; i <= 1000000; i++) {
+    for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
       var address = lc.address(attempt);
       if (address.endsWith(string)) {
