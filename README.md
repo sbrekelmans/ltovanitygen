@@ -61,8 +61,8 @@ Estimates on my 2017 laptop (Xeon E3-1505M v6)
 ### Case Insensitive
 | Characters | Estimated Attempts | Estimated Time |
 | :---: | :--- |:--- |
-| `1` | 29 | 2,81944E-05 |
-| `2` | 841 | 0,0008 |
+| `1` | 29 | 0,1 s |
+| `2` | 841 | 2,9 s |
 | `3` | 24389 | 0,023 h |
 | `4` | 707281 | 0,68 h |
 | `5` | 20511149 | 19,9 h |
