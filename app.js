@@ -157,7 +157,7 @@ if (location == "start") {
     console.log("addresspatterns can't start with an Uppercase letter");
     process.exit()
   }
-  console.log(`\nBruteforcing an address with pattern 3M... or 3N` + chalk.bold(pattern) + ` at the ${chalk.bold(location)}, case sensitive: ${chalk.bold(caseSensitivity)}`);
+  console.log(`\nBruteforcing an address with pattern 3M,3N... or 3J` + chalk.bold(pattern) + ` at the ${chalk.bold(location)}, case sensitive: ${chalk.bold(caseSensitivity)}`);
   calculatePossibilities(pattern, caseSensitivity);
   bruteForceStart(pattern, caseSensitivity);
 } else if (location == "end") {
