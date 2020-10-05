@@ -53,7 +53,7 @@ const bruteForceStart = (fullString, sensitive) => {
   } else if (sensitive == "yes") {
     for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
-      var address = lc.address(attempt, 'T'); //remove this 'T' for mainnet wallets
+      var address = lc.address(attempt); //add a 'T' for testnet wallets
       if (address.startsWith(fullString,2)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
@@ -81,7 +81,7 @@ const bruteForceEnd = (string, sensitive) => {
     var lowerString = string.toLowerCase();
     for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
-      var address = lc.address(attempt, 'T'); //remove this 'T' for mainnet wallets
+      var address = lc.address(attempt); //add a 'T' for testnet wallets
       if (address.toLowerCase().endsWith(lowerString)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
@@ -101,7 +101,7 @@ const bruteForceEnd = (string, sensitive) => {
   } else if (sensitive == "yes") {
     for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
-      var address = lc.address(attempt,'T');
+      var address = lc.address(attempt); //add a 'T' for testnet wallets
       if (address.endsWith(string)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
