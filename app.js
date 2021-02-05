@@ -29,17 +29,21 @@ const seedPhrase = () => {
   return seedWords;
 }
 
-const bruteForceStart = (fullString, sensitive) => {
+const bruteForceStart = (fullString, sensitive, chainParamter) => {
   var timeStart = new Date().getTime();
+  let chainId = 'L';
+  if (chainParamter == "test" ) {
+    chainId = 'T';
+  }
   if (sensitive == "no") {
     var lowerString = fullString.toLowerCase();
     for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
-      var address = lc.address(attempt, 'T'); //remove this 'T' for mainnet wallets
+      var address = lc.address(attempt, chainId); //remove this 'T' for mainnet wallets
       if (address.toLowerCase().startsWith(lowerString,2)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
-        console.log("\nsucces! "+ chalk.bold(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
+        console.log("\nsucces! "+ chalk.bold.green(address) + "\nseed: " + chalk.bold(attempt) + "\nprivate: " + chalk.bold(pair.private) + "\npublic: " + chalk.bold(pair.public));
         console.log("\nstatistics:");
         console.log("took " + i + " tries and " + (timeStop - timeStart) + " ms (" + ((timeStop - timeStart) / i) + " ms per try)\n\n");
         process.exit(0);
@@ -53,7 +57,7 @@ const bruteForceStart = (fullString, sensitive) => {
   } else if (sensitive == "yes") {
     for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
-      var address = lc.address(attempt); //add a 'T' for testnet wallets
+      var address = lc.address(attempt, chainId); //add a 'T' for testnet wallets
       if (address.startsWith(fullString,2)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
@@ -75,13 +79,17 @@ const bruteForceStart = (fullString, sensitive) => {
   }
 };
 
-const bruteForceEnd = (string, sensitive) => {
+const bruteForceEnd = (string, sensitive, chainParamter) => {
   var timeStart = new Date().getTime();
+  let chainId = 'L';
+  if (chainParamter == "test" ) {
+    chainId = 'T';
+  }
   if (sensitive == "no") {
     var lowerString = string.toLowerCase();
     for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
-      var address = lc.address(attempt); //add a 'T' for testnet wallets
+      var address = lc.address(attempt, chainId); //add a 'T' for testnet wallets
       if (address.toLowerCase().endsWith(lowerString)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
@@ -101,7 +109,7 @@ const bruteForceEnd = (string, sensitive) => {
   } else if (sensitive == "yes") {
     for (var i = 0; i <= maxTries; i++) {
       var attempt = seedPhrase();
-      var address = lc.address(attempt); //add a 'T' for testnet wallets
+      var address = lc.address(attempt, chainId); //add a 'T' for testnet wallets
       if (address.endsWith(string)) {
         var timeStop = new Date().getTime();
         var pair = lc.keyPair(attempt);
@@ -149,6 +157,8 @@ getPattern();
 
 const caseSensitivity = prompt('Case sensitive (yes/no)? ').toLowerCase();
 
+const chainParameter = prompt('Main or testnet? (main/test)? ').toLowerCase();
+
 const location = prompt('At what location? (start/end)? ' ).toLowerCase();
 
 
@@ -157,13 +167,13 @@ if (location == "start") {
     console.log("addresspatterns can't start with an Uppercase letter");
     process.exit()
   }
-  console.log(`\nBruteforcing an address with pattern 3M,3N... or 3J` + chalk.bold(pattern) + ` at the ${chalk.bold(location)}, case sensitive: ${chalk.bold(caseSensitivity)}`);
+  console.log(`\nBruteforcing a ${chalk.bold.green(chainParameter + 'net')} address with pattern 3M,3N... or 3J` + chalk.bold.green(pattern) + ` at the ${chalk.bold(location)}, case sensitive: ${chalk.bold.green(caseSensitivity)}`);
   calculatePossibilities(pattern, caseSensitivity);
-  bruteForceStart(pattern, caseSensitivity);
+  bruteForceStart(pattern, caseSensitivity, chainParameter);
 } else if (location == "end") {
-  console.log(`\nBruteforcing an address with pattern ` + chalk.bold(pattern) + ` at the ${chalk.bold(location)}, case sensitive: ${chalk.bold(caseSensitivity)}`);
+  console.log(`\nBruteforcing a ${chalk.bold.green(chainParameter + 'net')} address with pattern ` + chalk.bold.green(pattern) + ` at the ${chalk.bold.green(location)}, case sensitive: ${chalk.bold.green(caseSensitivity)}`);
   calculatePossibilities(pattern, caseSensitivity);
-  bruteForceEnd(pattern, caseSensitivity);
+  bruteForceEnd(pattern, caseSensitivity, chainParameter);
 } else {
   console.log("\nthere was an input error for some unknown reason.")
   process.exit()
