@@ -51,7 +51,7 @@ const bruteForceStart = (fullString, sensitive, chainParamter) => {
         //console.log(i);
       };
       if ((i % 5000) == 0) {
-        console.log(i + " attempts... still going...");
+        console.log(i + ` attempts to find ${chalk.bold.green(lowerString)}... at ` + chalk.bold(((now - timeStart) / i).toFixed(2)) + ` ms per try. Busy for ${chalk.bold(((now - timeStart)/(1000*60*60)).toFixed(2))} hours and still going...`);
       }
     }
   } else if (sensitive == "yes") {
@@ -70,7 +70,7 @@ const bruteForceStart = (fullString, sensitive, chainParamter) => {
       };
       if (i>0 && (i % 5000) == 0) {
         let now = new Date().getTime();
-        console.log(i + " attempts... at " + chalk.bold(((now - timeStart) / i).toFixed(2)) + " ms per try. Still going...");
+        console.log(i + ` attempts to find ${chalk.bold.green(fullString)}... at ` + chalk.bold(((now - timeStart) / i).toFixed(2)) + ` ms per try. Busy for ${chalk.bold(((now - timeStart)/(1000*60*60)).toFixed(2))} hours and still going...`);
       }
     }
   } else {
@@ -103,7 +103,7 @@ const bruteForceEnd = (string, sensitive, chainParamter) => {
       };
       if (i>0 && (i % 5000) == 0) {
         let now = new Date().getTime();
-        console.log(i + " attempts... at " + chalk.bold(((now - timeStart) / i).toFixed(2)) + " ms per try. Still going...");
+        console.log(i + ` attempts to find ${chalk.bold.green(lowerString)}... at ` + chalk.bold(((now - timeStart) / i).toFixed(2)) + ` ms per try. Busy for ${chalk.bold(((now - timeStart)/(1000*60*60)).toFixed(2))} hours and still going...`);
       }
     }
   } else if (sensitive == "yes") {
@@ -123,7 +123,7 @@ const bruteForceEnd = (string, sensitive, chainParamter) => {
       };
       if (i>0 && (i % 5000) == 0) {
         let now = new Date().getTime();
-        console.log(i + " attempts... at " + chalk.bold(((now - timeStart) / i).toFixed(2)) + " ms per try. Still going...");
+        console.log(i + ` attempts to find ${chalk.bold.green(string)}... at ` + chalk.bold(((now - timeStart) / i).toFixed(2)) + ` ms per try. Busy for ${chalk.bold(((now - timeStart)/(1000*60*60)).toFixed(2))} hours and still going...`);
       }
     }
   } else {
@@ -141,7 +141,7 @@ const calculatePossibilities = (pattern, caseSensitivity) => {
     correction = Math.pow(2,(pattern.match(/(L|i|o|[0-9])/g).length));
   };
   const odds = Math.pow(charOptions/58, pattern.length);
-  console.log("At 8ms per attempt this will take an estimated " + chalk.bold(((correction*8/odds)/(60000)).toFixed(0)) + " minutes or "+ chalk.bold(((correction*8/odds)/(60*24*60000)).toFixed(1)) + " days for a 50% chance of finding the pattern.")
+  console.log("At 5.85ms per attempt this will take an estimated " + chalk.bold(((correction*5.85/odds)/(60000)).toFixed(0)) + " minutes or "+ chalk.bold(((correction*5.85/odds)/(60*24*60000)).toFixed(1)) + " days for a 50% chance of finding the pattern.")
 }
 
 let pattern = ''
