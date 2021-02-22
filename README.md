@@ -71,6 +71,18 @@ Estimates on my 2017 laptop (Xeon E3-1505M v6)
 | `8` | 5,00246E+11 | 38 years |
 | `9` | 1,45071E+13 | 1097 years |
 
-As you can see it goes up pretty fast. Case senstive is harder to brute force...
+### Case Sensitive
+| Characters | Estimated Attempts for 50% chance | Estimated Time |
+| :---: | :--- |:--- |
+| `1` | 29 | 0,07 s |
+| `2` | 841 | 2,0 s |
+| `3` | 24389 | 58 s |
+| `4` | 707281 | 28 min |
+| `5` | 20511149 | 13,6 h |
+| `6` | 594823321 | 16 days |
+| `7` | 17249876309 | 476 days |
+| `8` | 5,00246E+11 | 38 years |
+| `9` | 1,45071E+13 | 1097 years |
+| `33` | 1,08E+58 | 1.23E+49 years |
 
-
+33 is the length of an entire LTO address. It would take 1.23E+49 years for a 50/50 chance of brute forcing a specific wallet. That's 914347694060765755359816721686245244258 times the age of the universe.
