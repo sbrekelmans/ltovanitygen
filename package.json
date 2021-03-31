@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@lto-network/lto-crypto": "^1.0.1",
+    "@lto-network/lto-crypto": "^1.1.0",
     "chalk": "^3.0.0",
     "debug": "~2.6.9",
     "express": "~4.16.1",
