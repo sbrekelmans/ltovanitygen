@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@lto-network/lto-crypto": "^1.0.1",
-    "chalk": "^3.0.0",
+    "chalk": "^4.1.2",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "lto-api": "^0.5.12",
